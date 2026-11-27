@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>李芷晗 · 新闻作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #5c5c5c;
+      --light: #8a8a8a;
+      --bg: #faf9f7;
+      --paper: #ffffff;
+      --line: #e8e6e1;
+      --accent: #c45c26;
+      --navy: #1e3a5f;
+      --soft: #f0ede8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Noto Sans SC", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--navy); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--accent); }
+
+    /* ========== Header ========== */
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    /* ========== Hero / About ========== */
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 72px 24px 56px;
+    }
+
+    .hero-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: "Noto Serif SC", serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero-text {
+      max-width: 640px;
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .hero-text p + p { margin-top: 1em; }
+
+    /* ========== Section ========== */
+    .section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .section-header h2 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .section-header .count {
+      font-size: 0.85rem;
+      color: var(--light);
+      font-weight: 400;
+    }
+
+    /* ========== Work Card ========== */
+    .work {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      margin-bottom: 40px;
+      overflow: hidden;
+    }
+
+    .work-head {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 3px 10px;
+      border-radius: 2px;
+      background: var(--soft);
+      color: var(--muted);
+    }
+
+    .tag.accent {
+      background: #fdf0e9;
+      color: var(--accent);
+    }
+
+    .work-head h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .work-meta {
+      font-size: 0.88rem;
+      color: var(--light);
+    }
+
+    .work-body {
+      padding: 28px 32px 32px;
+    }
+
+    .work-body p {
+      margin-bottom: 1.15em;
+      color: var(--ink);
+    }
+
+    .work-body p:last-child { margin-bottom: 0; }
+
+    .work-body h4 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.6em 0 0.7em;
+      color: var(--navy);
+    }
+
+    .work-body ul, .work-body ol {
+      margin: 0 0 1.15em 1.4em;
+    }
+
+    .work-body li { margin-bottom: 0.4em; }
+
+    .work-body blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 8px 0 8px 20px;
+      margin: 1.4em 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .media-block {
+      margin: 1.5em 0;
+    }
+
+    .media-block audio,
+    .media-block video {
+      width: 100%;
+      border-radius: 4px;
+      background: #111;
+    }
+
+    .media-block video { max-height: 480px; }
+
+    .img-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 1.4em 0;
+    }
+
+    .img-row img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--line);
+    }
+
+    .link-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 1.2em;
+      padding: 10px 16px;
+      background: var(--soft);
+      border-radius: 4px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--navy);
+      transition: background 0.2s;
+    }
+
+    .link-box:hover {
+      background: #e5e0d8;
+      color: var(--accent);
+    }
+
+    .source-list {
+      margin-top: 2em;
+      padding-top: 1.4em;
+      border-top: 1px solid var(--line);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .source-list strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    .source-list p { margin-bottom: 0.5em; }
+
+    /* ========== Footer ========== */
+    footer {
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--light);
+    }
+
+    footer strong { color: var(--muted); }
+
+    /* ========== Responsive ========== */
+    @media (max-width: 720px) {
+      .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+      nav { justify-content: flex-start; }
+      .hero { padding: 48px 20px 40px; }
+      .section { padding: 0 20px 48px; }
+      .work-head, .work-body { padding: 22px 20px; }
+      .img-row { grid-template-columns: 1fr; }
+      .img-row img { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">李芷晗 <span>·</span> 作品集</a>
+    <nav>
+      <a href="#about">关于</a>
+      <a href="#audio1">音频1</a>
+      <a href="#audio2">音频2</a>
+      <a href="#video">视频</a>
+      <a href="#data1">数据1</a>
+      <a href="#data2">数据2</a>
+      <a href="#data3">数据3</a>
+      <a href="#data4">数据4</a>
+      <a href="#text1">文字1</a>
+      <a href="#text2">文字2</a>
+    </nav>
+  </div>
+</header>
+
+<!-- About -->
+<section class="hero" id="about">
+  <div class="hero-label">About</div>
+  <h1>李芷晗<br>新闻作品集</h1>
+  <div class="hero-text">
+    <p>我是李芷晗，香港浸会大学新闻系学生。喜欢挖掘真实的人物故事，走进不同社区，并用摄影与文字记录不同瞬间。对待每一次项目，我都认真负责、守时高效。</p>
+    <p>这组作品包含不同的专题，是我尝试视频、音频、数据可视化与文字深度报道的新闻实践。根据不同媒介的特点，用适合的方式做内容：用视频和音频讲好完整故事，用数据可视化展现细节，用文字呈现政策与公共议题的复杂性，让信息传递更清晰、更有感染力。</p>
+    <p>每个项目都让我更加注重细节，更懂得站在受众角度做内容。从前期策划、拍摄采访，到后期制作与最终呈现，这些作品记录了我现阶段的创作成长。</p>
+  </div>
+</section>
+
+<!-- Audio 1 -->
+<section class="section" id="audio1">
+  <div class="section-header">
+    <h2>音频新闻</h2>
+    <span class="count">01 / 02</span>
+  </div>
+
+  <article class="work">
+    <div class="work-head">
+      <div class="work-tags">
+        <span class="tag accent">音频</span>
+        <span class="tag">街头采访</span>
+        <span class="tag">政策</span>
+      </div>
+      <h3>New 2026 Policy: Dining With Dogs — Is Hong Kong Ready?</h3>
+      <div class="work-meta">2026.2.27 · 香港中环</div>
+    </div>
+    <div class="work-body">
+      <p>这段音频聚焦香港预计 2026 年中期实施的宠物友善餐厅新政，计划将有 500 至 1000 家本地餐馆获得特殊许可，允许狗狗与主人在室内共同用餐。</p>
+      <p>音频呈现了正反两方观点：宠物主人期待与狗狗共同用餐，而部分市民则对卫生安全、过敏风险及公共空间舒适度表示担忧。通过真实的街头采访，反映出市民不同的态度，指出这项政策是香港迈向更包容城市的重要一步，同时仍需要完善法规，平衡宠物主人与其他市民的需求。</p>
+      <div class="media-block">
+        <audio controls>
+          <source src="https://videotourl.com/audio/1777287805990-c2f50eba-eb85-4aae-9c55-72bcc3b787b7.mp3" type="audio/mpeg">
+          你的浏览器不支持音频播放
+        </audio>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- Audio 2 -->
+<section class="section" id="audio2">
+  <div class="section-header">
+    <h2>音频新闻</h2>
+    <span class="count">02 / 02</span>
+  </div>
+
+  <article class="work">
+    <div class="work-head">
+      <div class="work-tags">
+        <span class="tag accent">音频</span>
+        <span class="tag">社区艺术</span>
+        <span class="tag">街头采访</span>
+      </div>
+      <h3>Yau Ma Tei Cat Mural: Street Art Integrates into Hong Kong's Old Community</h3>
+      <div class="work-meta">2026.3.9 · 香港油麻地 / 中环</div>
+    </div>
+    <div class="work-body">
+      <p>这段音频带我们走进油麻地的一条老街，街道上展示着由本地艺术团体 “Art Dreamers” 创作的猫咪主题壁画。我们采访了团体负责人 Edmund Kan，了解作品的创作灵感、提供墙面的美容店店主（希望借助壁画发掘商业价值），以及艺术家为猫咪融入红色指甲油、假睫毛、头巾等美容元素的设计过程。</p>
+      <p>我们还通过街头访谈收集公众反馈：多数受访者认为壁画美观生动，为社区带来活力；也有少数观众对以 “美” 为主题的细节设计感到不解。短片展现了社区艺术如何在审美表达、社区需求与商业利益之间寻求平衡，展现老香港社区里基层艺术的独特魅力。</p>
+      <div class="media-block">
+        <audio controls>
+          <source src="https://videotourl.com/audio/1777288103080-24f90114-b232-4e1f-8623-979123b6d0b5.mp3" type="audio/mpeg">
+          你的浏览器不支持音频播放
+        </audio>
+      </div>
+      <div class="img-row">
+        <img src="https://s3.bmp.ovh/2026/05/10/2k4LFAjy.jpg" alt="油麻地猫咪壁画现场1">
+        <img src="https://s3.bmp.ovh/2026/05/10/45eDSMdh.jpg" alt="油麻地猫咪壁画现场2">
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- Video -->
+<section class="section" id="video">
+  <div class="section-header">
+    <h2>视频新闻</h2>
+    <span class="count">01</span>
+  </div>
+
+  <article class="work">
+    <div class="work-head">
+      <div class="work-tags">
+        <span class="tag accent">视频</span>
+        <span class="tag">人物故事</span>
+        <span class="tag">文化</span>
+      </div>
+      <h3>The Man Behind Persian Carpets in Hong Kong</h3>
+      <div class="work-meta">2026.4.20 · 香港中环</div>
+    </div>
+    <div class="work-body">
+      <p>在香港，一位巴基斯坦商人用伊朗手工复古地毯，架起了中东文化与现代都市的桥梁。他从伊朗原产地精选传统手作地毯，不仅售卖商品，更用心讲述每一张地毯背后的匠人技艺与文化故事，帮助人们在香港看见并理解传统中东手工艺术，让这项古老技艺在现代生活中得以延续。</p>
+      <p>本视频通过这位巴基斯坦商人的自述，探寻伊朗手工地毯背后的故事。</p>
+      <div class="media-block">
+        <video controls>
+          <source src="https://videotourl.com/videos/1778410856326-fb87b52a-cf33-40dc-996a-87e7ee1dadb2.mp4" type="video/mp4">
+          你的浏览器不支持视频播放
+        </video>
+      </div>
+      <div class="img-row">
+        <img src="https://s3.bmp.ovh/2026/05/10/r0gTc8A6.jpg" alt="波斯地毯视频截图1">
+        <img src="https://s3.bmp.ovh/2026/05/10/iZmOJ4qW.jpg" alt="波斯地毯视频截图2">
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- Data 1 -->
+<section class="section" id="data1">
+  <div class="section-header">
+    <h2>数据新闻</h2>
+    <span class="count">01 / 04</span>
+  </div>
+
+  <article class="work">
+    <div class="work-head">
+      <div class="work-tags">
+        <span class="tag accent">数据可视化</span>
+        <span class="tag">实地体验</span>
+        <span class="tag">交通</span>
+      </div>
+      <h3>多举措推进：“公交化”真正实现了吗？</h3>
+      <div class="work-meta">2026.4.29</div>
+    </div>
+    <div class="work-body">
+      <p>该数据新闻以广深港高铁 “公交化” 运营为主题，通过数据查找、实地体验、信息可视化，探究在多举措的推进下，广深港高铁是否真正实现 “公交化”。</p>
+      <p>运用 2025—2026 年客运量、班次密度、线路时长等核心数据，点状图、线路地图、时间轴等可视化形式，呈现高铁 “公交化” 的推进成效。同时，结合实地乘车全流程记录，展现通关、安检、候车等环节的隐形时间成本，客观分析广深港高铁在班次加密、政策优化之外仍面临的现实障碍。</p>
+      <a class="link-box" href="https://gianna-li-06.github.io/train-hongkong/" target="_blank" rel="noopener">查看完整作品 →</a>
+    </div>
+  </article>
+</section>
+
+<!-- Data 2 -->
+<section class="section" id="data2">
+  <div class="section-header">
+    <h2>数据新闻</h2>
+    <span class="count">02 / 04</span>
+  </div>
+
+  <article class="work">
+    <div class="work-head">
+      <div class="work-tags">
+        <span class="tag accent">数据可视化</span>
+        <span class="tag">教育</span>
+        <span class="tag">问卷</span>
+      </div>
+      <h3>香港本科申请潮：内地学生为何选择香港八大？</h3>
+      <div class="work-meta">2026.5.2</div>
+    </div>
+    <div class="work-body">
+      <p>近年来，香港八大院校的内地本科申请热度持续攀升，已成为内地学生升学选择中的又一重要方向。该数据新闻聚焦这一趋势，通过现有数据、政府政策、多个实际案例与问卷调查，以数据可视化形式探究内地学生赴港就读本科的原因。</p>
+      <p>通过梳理近五年香港八大院校内地本科入学人数，可见整体呈增长趋势。原因在于香港不断调整非本地生招生政策，扩大内地招生规模并新增专业；同时，多重现实因素也影响着学生的选择。数据显示，内地在港本科生毕业后发展路径多元，可选择留港发展、返回内地或赴海外深造。整体来看，赴港就读本科是政策调整与现实因素共同作用的结果，已成为内地学生重要的升学途径之一。</p>
+      <a class="link-box" href="https://gianna-li-06.github.io/college-hongkong/" target="_blank" rel="noopener">查看完整作品 →</a>
+    </div>
+  </article>
+</section>
+
+<!-- Data 3: 自提点回收 -->
+<section class="section" id="data3">
+  <div class="section-header">
+    <h2>数据新闻</h2>
+    <span class="count">03 / 04</span>
+  </div>
+
+  <article class="work">
+    <div class="work-head">
+      <div class="work-tags">
+        <span class="tag accent">数据可视化</span>
+        <span class="tag">实地走访</span>
+        <span class="tag">设计 / 工程</span>
+        <span class="tag">环保</span>
+      </div>
+      <h3>【數據】自提點即場回收計劃覆蓋有限：HKTVmall僅3間設回收</h3>
+      <div class="work-meta">2026.10.5 · 文字：常想、鄭詩懿、梁雪敏 · 數據：劉可妍、許昊澤、黃浚睿、李芷晗、慈茗涵、何思語 · 設計／工程：李芷晗、慈茗涵、何思語</div>
+    </div>
+    <div class="work-body">
+      <p>隨着網購普及，環保團體「綠惜地球」推算，2025年送達香港的網購貨品包裝重量至少達<strong>270萬</strong>公斤。以本地電商HKTVmall為例，根據其母公司香港科技探索有限公司2026年6月未經審核營運數據，HKTVmall香港電子商貿業務平均每日訂單量為52200張，較2025年同月的48200張增加<strong>8.3%</strong>。</p>
+
+      <p>綠惜地球發布《網購包裝問卷調查2026》，收集的415份結果顯示，六成人認為包裝過多，逾七成人在處理包裹時感到困擾。</p>
+
+      <p>為應對網購快速發展所伴隨的包裹、紙箱及填充物料大增情況，環境保護署自2026年起，聯同主要物流企業逐步推行「自提點即場回收計劃」，鼓勵顧客取件後交回包裝，供重用或再造。然而，設置回收服務能否讓包裝留在門店而非隨顧客離店，實效仍然存疑。</p>
+
+      <p>數據顯示，HKTVmall的自提網絡規模持續擴張，全港自提點數量已由2025年7月的<strong>419</strong>間，截至2026年10月進一步增至<strong>558</strong>間。在現有558間自提點中，只有<strong>3</strong>間參與了「自提點即場回收計劃」，分別位於大埔的大埔廣場、鑽石山的荷里活廣場及金鐘的金鐘廊。記者走訪這3間自提點，了解回收計劃的運作情況。</p>
+
+      <h4>大埔廣場</h4>
+      <p>記者在大埔廣場的HKTVmall自提點，觀察到門店內外均無清晰的即場回收計劃告示。店長Kenny表示，門店不會主動向顧客宣傳計劃或要求當場回收速遞包裝。他指出，不少顧客因替親友代取包裹，無法當場拆封回收包裝；另一名店員Pell表示，自己對「自提點即場回收計劃」並不知情。</p>
+      <p>回收包裹前需去除膠紙和釘書釘，撕去貼紙標籤，並壓扁紙箱以供重用再造。</p>
+
+      <h4>金鐘廊</h4>
+      <p>在金鐘廊的HKTVmall自提點，受訪員工表示，不少顧客會直接把紙箱留在店內回收位置，交由店員透過拆箱服務完成一系列回收前置工序。不過，選擇把包裹帶回家拆封後，再專程送回紙箱的市民並不多見。</p>
+
+      <h4>荷里活廣場</h4>
+      <p>在荷里活廣場的HKTVmall自提點，店內張貼提示，列明繁忙時段不會提供拆箱服務。受訪市民直言，若要顧客自行完成拔釘、撕膠紙及壓扁等連串回收步驟，參與意願便大幅降低，寧可直接丟入普通垃圾桶。</p>
+
+      <div class="source-list">
+        <strong>資料說明</strong>
+        <p><strong>資料來源</strong>：香港科技探索有限公司《2026年6月未經審核營運數據公告》；綠惜地球《網購包裝問卷調查2026》；環境保護署「自提點即場回收計劃」試行門店名單及HKTVmall官方自提點名錄。</p>
+        <p><strong>研究方法</strong>：整理HKTVmall官方自提網絡名單，統計門店總數，並比對環境保護署試行回收計劃的門店覆蓋率；記者於2026年10月走訪大埔廣場、金鐘廊及荷里活廣場3間試行門店。</p>
+        <p><strong>限制</strong>：自提點即場回收的實際重量及次數未見每日公開數據。</p>
+        <p><strong>AI使用說明</strong>：使用工具以ChatGPT清理HKTVmall門店數據CSV；以生成式AI協助網頁版面與HTML結構設計。未用於選題角度、撰寫刊出文字、採訪或產生數據。</p>
+      </div>
+
+      <a class="link-box" href="https://legendary-douhua-2b72b7.netlify.app/" target="_blank" rel="noopener">查看完整互動作品 →</a>
+    </div>
+  </article>
+</section>
+
+<!-- Data 4: 北都动物安置 -->
+<section class="section" id="data4">
+  <div class="section-header">
+    <h2>数据新闻</h2>
+    <span class="count">04 / 04</span>
+  </div>
+
+  <article class="work">
+    <div class="work-head">
+      <div class="work-tags">
+        <span class="tag accent">调查报道</span>
+        <span class="tag">数据可视化</span>
+        <span class="tag">图表</span>
+        <span class="tag">北部都会区</span>
+      </div>
+      <h3>北都發展推進之下，動物安置配套是否缺位</h3>
+      <div class="work-meta">2026 · 網站：鄭詩懿、常想、梁雪敏 · 圖表：李芷晗、慈茗涵、何思語 · 文字：劉可妍、許昊澤、黃浚睿</div>
+    </div>
+    <div class="work-body">
+      <p>2026年8月至9月，香港接連發生6宗狗隻襲擊事件，一半發生在元朗及北區，並有2宗涉及致命事故。短時間內接連發生的襲擊，引起社會對新界鄉郊人狗共處及流浪狗管理的關注。</p>
+      <p>本報調查發現，6宗襲擊事件中，有4宗發生於北部都會區範圍內。與此同時，政府近年加快北部地區的收地及清拆工作，部分原有居民及經營者需要搬遷，原本由他們照顧的狗隻亦面臨去向問題。</p>
+      <p>本報調查發現，收地搬遷期間，部分居民可能因公營房屋（公屋）飼養限制及缺乏合適的動物安置安排，無法帶同原有狗隻遷居。相關個案反映，當居民需要在限期內搬遷，政府現有的動物安置政策能否回應受影響狗隻的需要，仍有待檢視。</p>
+      <p>這些現象是否存在關聯？收地及搬遷安排下，政府現有的動物安置政策是否足以應對受影響狗隻的需要？當部分居民無法將狗隻帶入公屋，相關安置缺口會否令部分狗隻面臨被遺棄或流浪的風險，進一步增加社區管理的壓力？</p>
+      <p>本報綜合漁農自然護理署、地政總署、本土研究社及民間動物救援組織「毛守救援」的公開資料，並訪問受影響市民、動物福利專家及立法會議員，探討北都發展下的動物安置問題，以及現行收地及搬遷安排能否回應受影響狗隻的福利需要。</p>
+
+      <h4>北都，從哪裏開始？</h4>
+      <p>「北部都會區」（下稱北都）為香港新界北的規劃發展區域，涵蓋元朗區及北區兩個行政區。香港政府在2021年正式發表《北部都會區發展策略》，但實際上的徵地與清拆工作早已推進。地政總署的資料顯示，早於2019年，他們就針對北區的新發展區發布徵用土地公告，並於2020年陸續開始回收土地。</p>
+      <p>自2019年起，地政總署已經開展14項北都收地計劃。其中有一半在2025至2026年開啟。以2025年為分界，相關批次涉及的私人土地收回面積，由此前5年間的31公頃，增至2025年後的236公頃，約為前5年的7倍。這反映出政府近兩年在元朗發展區加速開展大規模收地項目，與近期發生的流浪狗襲擊事件在時間維度上有重合。</p>
+
+      <h4>至少 802 隻貓狗受發展影響</h4>
+      <p>北部都會區土地發展正在影響原本生活在這的動物。香港非牟利組織本土研究社通過查閱新聞報導和社交媒體，整理了有關北都發展和貓狗受收地影響的新聞個案數量。其數據顯示，近兩年北都出現了明顯的流浪貓狗數量增加的現象。</p>
+      <p>2025年至今年9月，該地區至少有802隻貓狗受到影響，相比於之前4年內受影響的貓狗數量有明顯的增多。這些受北都發展而流離失所的貓狗，主要集中在新界北的元朗南發展區和粉嶺北發展區，分別為238隻和233隻。</p>
+      <p>自2025年起，元朗區的民間動物救援組織「毛守救援」與香港大學和浸會大學合作，整合了流浪狗隻的救援紀錄並建立數據庫。其公開數據顯示，2025年下半年至2026年上半年，新界獲救狗隻數量由62隻增至125隻，增幅約為1倍。2026年上半年，元朗區和北區個案合計佔新界總數的61.6%。</p>
+      <p>漁護署新界北動物管理中心2025年第三季度至2026年第一季度的數據顯示，捕獲的流浪狗隻數量呈上升趨勢，與民間救援個案相互佐證，共同反映出北都發展區的流浪狗救援及安置需求正在持續增加。</p>
+
+      <h4>北都發展區收地潮下的動物棄養問題及寵物安置困境</h4>
+      <p>2025年至2026年，香港動物保護組織SPCA聯合香港大學對香港私人動物收容所面臨的挑戰展開研究，並採訪了22位動保團體的運營者和志願者。研究明確指出政府在北部地區的收地項目導致新界的村莊遭到關閉，動物遭受主人的遺棄。研究中的一位受訪者表示，政府徵用土地後會提供公營房屋來安置原住民，但是許多狗隻無法跟隨主人進入公營房屋。</p>
+      <p>研究中的另一名受訪者也表示大約有3000只動物會因政府收回土地而無家可歸。發展局2019年10月底的數據顯示，有220戶受影響住戶遷入上水寶石湖邨。然而，根據漁護署掌握的資料，當時新發展區內約有300隻持牌狗隻，最終僅有3個住戶向房委會提出「伴侶犬」共同遷入寶石湖邨的申請，當中僅1宗獲批。</p>
+      <p>北區區議員劉鎮海指出，現行公屋申請「伴侶犬」政策門檻嚴苛，規定每戶僅限飼養一隻、體重上限為20公斤。然而，新發展區農村住戶往往飼養多於一隻狗，且品種多為體型較容易超重的唐狗，導致大量住戶不符資格。他透露，自身上任7個月以來已協助撰寫14封「伴侶犬」申請信，但因審理週期漫長，至今尚無個案完成審核。</p>
+      <p>動保團體「毛守救援」負責人陸先生指出，在2024年間的半年前已接收超過100宗與搬遷「上樓」相關的棄養個案，其中約八成直接與收地清拆有關。非官方組織「動物福利關注聯盟」於2026年11月公布的統計顯示，在首半年內，5家非牟利救助機構合共接收了569隻動物，其中高達56%為狗隻；逾八成動物來源於新界，以元朗區、北區及屯門區的比例最高。</p>
+
+      <h4>個案</h4>
+      <p>陳錦發先生，25歲，一名廠房擁有者，其廠房位於新田科技城發展範圍內。他透露其工廠所在的區域以工業廠房為主。隨著政府收地程序推進，大量廠房面臨搬遷。</p>
+      <blockquote>他說：「政府給予的搬遷時間非常緊迫，部分廠家在限期內來不及找到合適的落腳點，只能被迫將原本用於看守廠房的狗隻遺棄在原址。」</blockquote>
+      <p>陳先生指出，除了客觀的時間限制，亦有少數廠家因認為轉移與重新安置程序繁瑣，而選擇直接棄養自家狗隻。這些長期依附廠房生存的「倉狗」，平時多缺乏晶片登記與絕育，一旦工廠搬離、土地被徵收，牠們便瞬間淪為無人看管的流浪狗。</p>
+
+      <h4>專家與議員如何解讀</h4>
+      <p>前 SPCA 動物福利項目負責人李思嘉博士表示，北部都會區的收地項目使部分村民搬遷，若狗隻無法隨主人遷居，又未找到接收方，便可能失去原有的照顧，成為流浪狗隻。她曾接觸一名即將搬離洪水橋村落的長者，對方飼養的兩隻唐狗當時仍未有確定去處：「他就是馬上就需要搬去公屋了，他那兩隻狗就不能帶走。」</p>
+      <p>北區區議會議員劉鎮海表示，北都發展確實會影響大量的原居動物。不少狗主因無法把狗隻帶入公屋，而選擇棄養。「部分狗隻會被交給動物團體，部分則被綁在原地，還有些狗隻直接被遺棄街頭。」由於這些狗隻多數未做絕育，所以繁殖問題會更嚴重。</p>
+      <p>前漁護署動物管理專家薛漢宗教授表示，收地令流浪狗數量增加的說法目前沒有足夠的證據支持。他表示香港過去數十年中每年捕捉狗隻數量呈下降趨勢。不過，他表示城市化可能改變人狗接觸的情況：「城市化令可用空間減少，人與動物的活動範圍愈來愈接近」。</p>
+
+      <h4>數據的局限性</h4>
+      <p>上述數字呈現了不同機構接觸到的動物個案，但不能單憑它們判定收地引發了近期狗隻襲擊事件。本土研究社整理的是新聞及社交媒體上可查到的受影響貓狗個案，並非實地點算；「毛守救援」的數字則反映該組織救援狗隻的數量，可能受求助渠道、救援能力及記錄方式的影響。漁護署的捕獲數字同樣受巡查、投訴及捕捉工作影響。</p>
+      <p>現有資料亦未能完整呈現受收地影響的居民中，有多少人獲安置至公屋、多少人原本飼養狗隻，以及其中有多少狗隻因公屋飼養限制而未能隨主人遷居。因此，不能單憑現有數據推算收地搬遷導致多少狗隻被棄養。不過，相關資料及個案反映，北都發展及收地搬遷過程中，動物安置及救援需求值得持續關注。</p>
+      <p>漁護署郵件回覆表示，其並沒有分類備存因受北都發展收地影響而棄養動物的投訴及個案數字。</p>
+
+      <a class="link-box" href="https://prompt-ochre-ynf9q72.tmp.now/" target="_blank" rel="noopener">查看完整互動作品 →</a>
+    </div>
+  </article>
+</section>
+
+<!-- Text 1: Wildlife feeding -->
+<section class="section" id="text1">
+  <div class="section-header">
+    <h2>文字新闻</h2>
+    <span class="count">01 / 02</span>
+  </div>
+
+  <article class="work">
+    <div class="work-head">
+      <div class="work-tags">
+        <span class="tag accent">深度报道</span>
+        <span class="tag">政策解读</span>
+        <span class="tag">采访</span>
+        <span class="tag">动物福利</span>
+      </div>
+      <h3>Why is Hong Kong cracking down wildlife feeding?</h3>
+      <div class="work-meta">记者：Gianna Li Zhihan、Suzy Su Yutong · 2026.10</div>
+    </div>
+    <div class="work-body">
+      <p>Hong Kong launched a one-month special operation against illegal feeding of wild animals starting from Oct. 1 at blackspots, including Kam Shan Country Park and Lion Rock Country Park.</p>
+      <p>The car park at Kam Shan Country Park has been equipped with an AI-powered CCTV system to assist in identifying illegal feeding.</p>
+      <p>Research at a macaque ecotourism site in Sabah, Malaysia, found that banning tourist feeding, together with education and staff supervision, can be a relatively simple but effective way to reduce human-animal conflict.</p>
+      <p>Hong Kong has rolled out a strategy combining enforcement and public outreach, such as education campaigns and advertisements.</p>
+      <p>Here is what you need to know about Hong Kong’s illegal feeding policy.</p>
+
+      <h4>1. Is feeding wild animals illegal in Hong Kong?</h4>
+      <p>The Wild Animals Protection Ordinance 2024 introduced a territory-wide ban on feeding wild pigs, monkeys, and feral pigeons.</p>
+      <p>The maximum penalty was raised from HK$10,000 to HK$100,000 and imprisonment for one year, alongside a fixed penalty of HK$5,000.</p>
+      <p>As of Aug. 31, 2026, the Agriculture, Fisheries and Conservation Department had issued 86 and 59 fixed penalty notices in respect of illegal feeding of monkeys and wild pigs, including eight in August alone.</p>
+      <p>The AFCD also recorded 12 successful summons prosecutions.</p>
+      <p>In a case at Sha Tin Magistrates’ Court, a woman who received a HK$5,000 fixed penalty notice for feeding monkeys at Kam Shan Country Park opted to contest the charge. She ultimately pleaded guilty at trial and was fined HK$10,500, the highest single fine imposed since the ordinance took effect.</p>
+
+      <h4>2. Why is feeding wild animals illegal?</h4>
+      <p>Hannah Sue Mumby, an assistant professor studying human-wildlife interactions at the Education University of Hong Kong, said: “As soon as you feed an animal, you’re affecting its natural behaviour and its feeding ecology.”</p>
+      <p>Mumby said food provided by humans is often higher in sugar and fat than what wild animals would naturally find. Even fruit has been selectively bred over time and differs significantly from food available in the wild.</p>
+      <blockquote>“It's going to become more attractive to that animal to wait around for more food like that than to do its natural foraging behaviour.”</blockquote>
+      <p>In Oct. 2023, a wild pig injured six people at a construction site on Stubbs Road.</p>
+      <p>After repeated contact with humans, wild animals may lose their fear of people and become more aggressive, sometimes snatching plastic bags or food from the public, according to the AFCD.</p>
+      <p>A review of 115 studies published in the journal Biological Conservation found that pathogens tended to accumulate at or near feeding sites in 77% of them.</p>
+      <p>Andrew Chan Chung-ming, Animal Welfare Officer of the AFCD, said: “Feeding can also cause certain species to increase in numbers in particular locations, intensifying competition between species, putting pressure on other animals, and raising the risk of disease and parasite transmission.”</p>
+      <blockquote>“Basically, as soon as you feed an animal like that, you’re really risking that animal’s future,” Mumby said.</blockquote>
+
+      <h4>3. What is the history of the regulations prohibiting feeding in Hong Kong?</h4>
+      <p>Hong Kong first introduced feeding ban areas under the Wild Animals Protection Ordinance in 1999. The areas mainly covered places where monkeys often gathered, such as Lion Rock Country Park and Kam Shan Country Park.</p>
+      <p>As wildlife nuisance issues spread to more districts, the government amended the notice in 2022 to extend the feeding ban across the entire territory, targeting animals including monkeys and wild pigs.</p>
+      <p>In May 2024, the government further extended the feeding ban to include feral pigeons.</p>
+
+      <h4>4. How does the AI camera system work?</h4>
+      <p>To catch illegal feeders, the AFCD has piloted AI-powered CCTV cameras at selected blackspots.</p>
+      <p>From the AFCD’s start of the trials in early 2024 to Aug. 31, 2026, the system helped secure 13 successful prosecution cases, while two other cases remain under investigation.</p>
+      <p>When operating outdoors, the system uses image analysis to detect suspicious behaviour and help to plan further enforcement.</p>
+      <p>“The AI system will not replace human judgement. It serves only as a supporting tool to boost monitoring efficiency and help spot potential violations at an early stage,” Andrew said.</p>
+      <p>Timothy Carlton Bonebrake, a professor in the Department of Biological Sciences at the University of Hong Kong, said: “We can apply different technological tools and try to increase enforcement, but ultimately, that won’t be as effective as public education and cultural approaches.”</p>
+      <p>The AFCD has launched a series of education campaigns under the themes “All for No Feeding” and “Pigeon Mission”, publishing advertisements and videos across various platforms.</p>
+      <p>During the National Day “golden week”, advertisements were displayed on the MTR, cross-border buses and at boundary control points to remind the public not to feed wild animals.</p>
+
+      <h4>5. What should visitors do if they encounter monkeys or wild pigs?</h4>
+      <p>“If you want to be near a wild pig or a monkey, keep a safe distance of 15 to 20 metres,” Mumby said.</p>
+      <p>Mumby added that most animals dislike direct eye contact, which can be perceived as aggressive. Smiling widely or showing teeth is not a friendly greeting to animals.</p>
+      <p>Handing food directly to an animal is similar to allowing it to snatch food from you. The AFCD advises people to keep food inside a cloth bag.</p>
+      <p>If disturbed by wild animals, the public can call the 1823 Call Centre so the AFCD can follow up. If in an emergency, they should call 999 immediately.</p>
+      <blockquote>“Just think of animals as neighbours, but not human beings. So be a little bit more kind, patient, understanding, a little bit more space, because you’re going into their home,” Mumby said.</blockquote>
+
+      <div class="source-list">
+        <strong>Source List</strong>
+        <p>1. Dr MUMBY Hannah Sue — Assistant Professor, Department of Social Sciences and Policy Studies, the Education University of Hong Kong · hsmumby@eduhk.hk · Interview: Oct. 9, 2026 (Zoom)</p>
+        <p>2. Bonebrake, Timothy Carlton — Director and Professor, School of Biological Sciences, Faculty of Science, the University of Hong Kong · tbone@hku.hk · Interview: Oct. 16, 2026 (Zoom)</p>
+        <p>3. Andrew Chan Chung-ming — Animal Welfare Officer, Agriculture, Fisheries and Conservation Department · media_enquiry@afcd.gov.hk · Enquiry: Oct. 12, 2026 (Email)</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- Text 2: Po Pin Chau -->
+<section class="section" id="text2">
+  <div class="section-header">
+    <h2>文字新闻</h2>
+    <span class="count">02 / 02</span>
+  </div>
+
+  <article class="work">
+    <div class="work-head">
+      <div class="work-tags">
+        <span class="tag accent">深度报道</span>
+        <span class="tag">环境管理</span>
+        <span class="tag">采访</span>
+        <span class="tag">地质保育</span>
+      </div>
+      <h3>Trial Reservation System at Po Pin Chau: Managing Visitor Numbers and Protecting Geological Features</h3>
+      <div class="work-meta">2026.9–10</div>
+    </div>
+    <div class="work-body">
+      <p>The Agriculture, Fisheries and Conservation Department (AFCD) has launched a trial reservation system at the High Island Geo Trail–Po Pin Chau Section in Sai Kung on weekends from September 5 to October 7, aiming to manage visitor numbers and protect fragile geological features along the popular trail.</p>
+      <p>During this year’s May Day holiday, Hong Kong’s East Dam recorded around 2,900 visitors per day, with a peak of 5,700 visitors on a single day. To manage surging visitor numbers, the trial caps daily entries at 2,000 during designated hours. Each two-hour slot permits 500 people. Reservations are free of charge and can be made in advance through the Klook platform.</p>
+      <blockquote>“The reservation system aims to manage visitor numbers and protect fragile geological features along the popular trail, as well as improve the visiting experience for the public,” said Lai Kin-ming, Director of AFCD.</blockquote>
+      <p>However, Professor Xu Zhenci and Sun Zounachuan, both from the Department of Geography at the University of Hong Kong (HKU), said the daily 2,000-visitor cap reflects only the trail’s physical limits, not its ecological carrying capacity.</p>
+      <p>Xu said restricting access to one highly visited area may redistribute visitor flows and recreational pressure to other, potentially more ecologically sensitive locations.</p>
+      <blockquote>“While visitor caps serve as direct management tools, their actual effectiveness ultimately depends on quota calibration and visitor behavior management,” said Peng Liqing, Assistant Professor in the Department of Geography at HKU.</blockquote>
+      <p>The AFCD said it will review the trial run after the mainland’s National Day “golden week” to evaluate long-term visitor-management strategies. Xu said that if effective, this adaptive framework could be tailored for other ecologically sensitive areas, such as Sunset Peak during silver-grass season.</p>
+      <p>Li Dong, a 42-year-old hiking enthusiast, learned about the reservation system through Douyin.</p>
+      <blockquote>“Booking online via Klook is convenient, and I can reserve my time slot in advance,” Li said. “This trail is steep and narrow, and it becomes extremely difficult to climb once it gets overcrowded.”</blockquote>
+
+      <div class="source-list">
+        <strong>Source List</strong>
+        <p>1. Peng Liqing — Assistant Professor, Department of Geography, The University of Hong Kong · lqpeng@hku.hk · Interview: Sept 24, 2026 (Zoom)</p>
+        <p>2. Li Dong — Mainland Visitor, Age 42 · Face-to-face interview at High Island Reservoir East Dam · Sept 20, 2026</p>
+        <p>3. Xu Zhenci — Associate Professor, Department of Geography, The University of Hong Kong · xuzhenci@hku.hk · Interview: Sept 25, 2026 (Zoom)</p>
+        <p>4. Sun Zounachuan — Department of Geography, The University of Hong Kong · sun_zounc@connect.hku.hk · Interview: Sept 25, 2026 (Zoom)</p>
+        <p>5. AFCD Official Announcement: Agriculture, Fisheries and Conservation Department Facebook Page, “Trial Reservation System at Po Pin Chau”</p>
+        <p>6. Government Information Services: Information Services Department, HKSAR Government, “Trial reservation scheme for Sai Kung trail,” August 21, 2026</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<footer>
+  <p><strong>李芷晗</strong> · 香港浸会大学新闻系</p>
+  <p style="margin-top: 6px;">个人新闻作品集 © 2026</p>
+</footer>
+
+</body>
+</html>
